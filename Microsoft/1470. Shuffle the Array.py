@@ -30,14 +30,14 @@ class Solution:
     def shuffle(self, nums: List[int], n: int) -> List[int]:
         ret = [None] * 2 * n
         i = 0
-        k = 0
         j = n
-        while k < n:
-            ret[i] = nums[k]
-            ret[i+1] = nums[j]
-            i = i + 2
-            k = k + 1
+        k = 0
+        while i < n:
+            ret[k] = nums[i]
+            ret[k+1] = nums[j]
+            i = i + 1
             j = j + 1
+            k = k + 2
         return ret
       
 # Time - O(N)
