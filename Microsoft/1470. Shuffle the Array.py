@@ -125,5 +125,56 @@ class Solution:
         return arr
        
 # Time - O(N)
-# Space - O(N)       
+# Space - O(N)      
+
+
+
+# Solution 5: bit manipulation
+"""
+Prerequisites:
+Some bit manipulation knowledge will be helpful in understanding this algorithm. This algorithm uses:
+
+Bitwise AND &
+Bitwise OR |
+Left Shift <<
+Right Shift >>
+Binary Representations of Numbers
+Intuition:
+
+This in-place algorithm relies on the constraint 1 <= nums[i] <= 10^3. This means the largest possible number in the nums array is 1000.
+The binary representation of 1000 is 1111101000.
+If we count the number of bits in 1111101000 we get 10.
+Because the largest possible number only uses 10 bits, we can fit two numbers into one 32-bit binary representation.
+This means we can store pairs of numbers in one binary representation without fear of overwriting a number.
+"""
+
+class Solution:
+    def shuffle(self, nums: List[int], n: int) -> List[int]:
+        
+        i=n-1
+        j = 2*n-1
+        while(j>=n):
+            nums[j] = nums[j]<<10
+            nums[j] = nums[j]|nums[i]
+            i -= 1
+            j -= 1
+        
+        j = n
+        i = 0
+        while(j<2*n):
+            nums[i] = nums[j]&1023
+            nums[i+1] = nums[j]>>10
+            j += 1
+            i += 2
+            
+        return nums
+       
+# Solution 6: Zip Method
+# https://realpython.com/python-zip-function/ 
+
+def shuffle(self, nums: List[int], n: int) -> List[int]:
+        res = []
+        for i, j in zip(nums[:n],nums[n:]):
+            res += [i,j]
+        return res       
        
