@@ -41,9 +41,72 @@ class Solution:
 
 
 
-#Solution 2: optimized
 
 
+
+#Solution 2: optimized Using pattern
+
+"""
+This solution uses the fact that the negative regions of the matrix will form a "staircase" shape, e.g.:
+
+++++++
+++++--
+++++--
++++---
++-----
++-----
+What this solution then does is to "trace" the outline of the staircase.
+Start from ***bottom-left*** corner of the matrix, count in the negative numbers in each row.
+
+"""
+
+class Solution:
+    def countNegatives(self, grid: List[List[int]]) -> int:
+        row, col = len(grid)-1, 0
+        count = 0
+        
+        while row >= 0 and col < len(grid):
+            if grid[row][col] < 0:
+                count += len(grid[0]) - col
+                row -= 1
+            else:
+                col += 1
+        return count
 
 # Time: O(N+M)
+# Space: O(1)
+
+
+
+
+
+
+
+
+
+
+
+
+#Solution 3: optimized using binary search 
+# Since each row is in sorted order, Pass each row for binary search and count the negatives
+
+class Solution:
+    def countNegatives(self, grid: List[List[int]]) -> int:
+        def binary(arr):
+            start = 0
+            end = len(arr)
+            while start < end:
+                mid = start + ((end - start))//2
+                if arr[mid] < 0:
+                    end = mid
+                else:
+                    start = mid + 1
+            return len(arr) - start
+        
+        count = 0
+        for i in range(len(grid)):
+            count += binary(grid[i])
+        return count
+
+# Time: O(N LogM)
 # Space: O(1)
