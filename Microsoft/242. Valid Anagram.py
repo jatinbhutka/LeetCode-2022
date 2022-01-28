@@ -52,7 +52,33 @@ class Solution:
         return True
 
 # Time: O(N)
-# Space: O(N)
+# Space: O(1) ----> Its Not O(N). Because we will be using constant space dic
+
+
+
+# Solution 2: Using Sorting and comaparing
+
+
+def isAnagram2(self, s, t):
+    dic1, dic2 = [0]*26, [0]*26
+    for item in s:
+        dic1[ord(item)-ord('a')] += 1
+    for item in t:
+        dic2[ord(item)-ord('a')] += 1
+    return dic1 == dic2
+
+# Time: O(N)
+# Space: O(1)    
+    
+    
+    
+# Solution 2: Using Sorting and comaparing
+ 
+def isAnagram3(self, s, t):
+    return sorted(s) == sorted(t)
+ 
+# Time: O(N Log N)
+# Space: O(1)   
 
 
 
