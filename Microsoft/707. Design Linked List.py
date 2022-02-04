@@ -40,6 +40,13 @@ At most 2000 calls will be made to get, addAtHead, addAtTail, addAtIndex and del
 """
 
 
+
+"""
+Linked List is a data structure with zero or several elements. Each element contains a value and link(s) to the other element(s). Depending on the number of links, that could be singly linked list, doubly linked list and multiply linked list.
+
+Singly linked list is the simplest one, it provides addAtHead in a constant time, and addAtTail in a linear time. Though doubly linked list is the most used one, because it provides both addAtHead and addAtTail in a constant time, and optimises the insert and delete operations.
+"""
+
 class Node(object):
 
     def __init__(self, val):
