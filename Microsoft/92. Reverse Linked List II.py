@@ -20,6 +20,13 @@ The number of nodes in the list is n.
 Follow up: Could you do it in one pass?
 """
 
+```
+- Divide problem in 3 steos:
+ 1. Reach out to left pointer.
+ 2. reverse linkedlist from left to right pointer
+ 3. connect nodes
+```
+
 
 # Definition for singly-linked list.
 # class ListNode:
