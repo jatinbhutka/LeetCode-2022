@@ -1,0 +1,187 @@
+# 708. Insert into a Sorted Circular Linked List:
+
+"""
+Given a Circular Linked List node, which is sorted in ascending order, write a function to insert a value insertVal into the list such that it remains a sorted circular list. The given node can be a reference to any single node in the list and may not necessarily be the smallest value in the circular list.
+If there are multiple suitable places for insertion, you may choose any place to insert the new value. After the insertion, the circular list should remain sorted.
+
+If the list is empty (i.e., the given node is null), you should create a new single circular list and return the reference to that single node. Otherwise, you should return the originally given node.
+
+Example 1:
+Input: head = [3,4,1], insertVal = 2
+Output: [3,4,1,2]
+Explanation: In the figure above, there is a sorted circular list of three elements. You are given a reference to the node with value 3, and we need to insert 2 into the list. The new node should be inserted between node 1 and node 3. After the insertion, the list should look like this, and we should still return node 3.
+
+Example 2:
+Input: head = [], insertVal = 1
+Output: [1]
+Explanation: The list is empty (given head is null). We create a new single circular list and return the reference to that single node.
+
+Example 3:
+Input: head = [1], insertVal = 0
+Output: [1,0]
+ 
+Constraints:
+The number of nodes in the list is in the range [0, 5 * 104].
+-106 <= Node.val, insertVal <= 106
+"""
+
+"""
+# Definition for a Node.
+class Node:
+    def __init__(self, val=None, next=None):
+        self.val = val
+        self.next = None
+"""
+
+# Time: O(N)
+# Space: O(1)
+
+# Solution: My Solution
+class Solution:
+    def insert(self, head: 'Optional[Node]', insertVal: int) -> 'Node':
+        
+        newnode = Node(insertVal)
+
+        # Base Case - When Head is null
+        if head is None:
+            head = newnode
+            head.next = newnode
+            return head
+        
+        # Base Case - When Head.next is null:
+        if head.next == head:
+            head.next = newnode
+            newnode.next = head
+            return head
+        
+        small = head
+        curr = head.next
+        while curr != head:
+            if curr.val <= small.val:
+                small = curr
+            curr = curr.next
+        
+        curr = small
+        prev = small
+        curr = small.next
+            
+        while curr != small:
+            if insertVal <= curr.val and insertVal > prev.val:
+                break
+            # This is for [3,3,5], 0 -----> [3,3,5,0]
+            if prev.val > curr.val:
+                break
+            prev = curr
+            curr = curr.next
+            
+        prev.next = newnode
+        newnode.next = curr
+        return head
+
+      
+# Solution 1: 
+
+"""
+# Definition for a Node.
+class Node:
+    def __init__(self, val=None, next=None):
+        self.val = val
+        self.next = next
+"""
+
+class Solution:
+    def insert(self, head: 'Node', insertVal: int) -> 'Node':
+        node = Node(insertVal)  
+        
+        if not head:
+            node.next = node
+            return node
+
+        prev, curr = head, head.next
+        
+        while prev.next != head:
+            # Case1: 1 <- Node(2) <- 3
+            if prev.val <= node.val <= curr.val:
+                break
+            
+            # Case2: 3 -> 1, 3 -> Node(4) -> 1, 3 -> Node(0) -> 1
+            if prev.val > curr.val and (node.val > prev.val or node.val < curr.val):
+                break
+            
+            prev, curr = prev.next, curr.next
+
+        # Insert node.
+        node.next = curr
+        prev.next = node           
+        
+        return head
+
+      
+      
+# Solution 2: 
+
+    def insert(self, head, insertVal):
+        """
+        :type head: Node
+        :type insertVal: int
+        :rtype: Node
+        """
+        new_node = Node(insertVal, head)
+        
+        if not head:  
+            return new_node
+         
+        node = head
+        while True:
+            if node.next.val < node.val and (insertVal <= node.next.val or insertVal >= node.val):
+                break
+            elif node.val <= insertVal <= node.next.val:
+                break
+            elif node.next == head:
+                break
+            node = node.next
+        
+        new_node.next = node.next
+        node.next = new_node
+        return head
+      
+      
+      
+# Solution 3:
+
+'''
+Algorithm:
+Case1: insert in middle of ascending part => prev.val <= insertVal <= curr.val
+Example: ... 1 -> 2 -> insertVal (3) -> 4 -> 5 ...
+Case2: insertVal is smaller than all values in list, then insert at where ascending part is over => prev.val > curr.val > insertVal
+Example: ... 3 -> 4 -> insertVal (0) -> 1 -> 2 ...
+Case3: insertVal is larger than all values in list, then insert at where ascending part is over => insertVal > prev.val > curr.val
+Example: ... 3 -> 4 -> insertVal (5) -> 1 -> 2 ...
+Case4: already iterate all slots and no matches, which means all values in list are same and different from insertVal => curr == head
+Example: ... 3 -> 3 -> InsertVal (5) -> 3 (head) -> 3 ...
+NOTE: Case 4 also includes the case that head is single node and points to itself.
+'''
+
+class Solution(object):
+    def insert(self, head, insertVal):
+        """
+        :type head: Node
+        :type insertVal: int
+        :rtype: Node
+        """
+        insert = Node(insertVal)
+        # handle None head case
+        if not head:
+            insert.next = insert
+            return insert
+        # search for proper insert location
+        prev, curr = head, head.next
+        while True:
+            if prev.val <= insertVal <= curr.val \
+            or prev.val > curr.val > insertVal \
+            or insertVal > prev.val > curr.val \
+            or curr == head:
+                prev.next, insert.next = insert, curr
+                return head
+            prev, curr = curr, curr.next
+    
