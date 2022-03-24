@@ -14,3 +14,6 @@ heappush(self.minHeap, num)
 # Pop min element of heap
 heappop(self.minHeap)
 ```
+
+
+<img width="612" alt="image" src="https://user-images.githubusercontent.com/35987583/159852766-77674f1f-0139-4c6c-b6ca-121ebdd80fc5.png">
