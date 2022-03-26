@@ -45,6 +45,28 @@ class Solution:
 
 
 
+# Counter Question: Maximum Subarray with maximum Sum:
+class Solution:
+    def maxSubArray(self, nums: List[int]) -> int:
+        
+        currSum = nums[0]
+        maxSum = nums[0]
+        
+        start = end = 0
+        
+        for i in range(1,len(nums)):
+            
+            if currSum + nums[i] < nums[i]:
+                big = i
+            currSum = max(currSum + nums[i], nums[i])
+            
+            if maxSum < currSum:
+                start = big
+                end = i
+            maxSum = max(currSum, maxSum)
+        return nums[start:end+1]
+
+
 
 # Solution 1: optimized Bruter Force
 class Solution:
