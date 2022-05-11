@@ -1,5 +1,9 @@
 # 1541 Minimum Insertions to Balance a parentheses String:
 
+<img width="728" alt="image" src="https://user-images.githubusercontent.com/35987583/167804417-80394c83-ede4-42c5-8d59-ba28391ec085.png">
+<img width="720" alt="image" src="https://user-images.githubusercontent.com/35987583/167804477-3c4eaa88-76d7-4401-a73b-99d2be217102.png">
+
+
 ![image](https://user-images.githubusercontent.com/35987583/167792486-97ddb593-ea30-4184-8098-45c5e4a51916.png)
 
 # Using Stack:
