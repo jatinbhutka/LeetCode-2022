@@ -11,3 +11,20 @@ In Graph theory, the depth-first search algorithm (abbreviated as DFS) is mainly
 
 1. Traverse all vertices in a “graph”;
 2. Traverse all paths between any two vertices in a “graph”.
+
+
+
+
+# DFS:
+
+- We will use Stack to Implement and travel to all the vertices
+
+<img width="880" alt="image" src="https://user-images.githubusercontent.com/35987583/178165280-b58330e9-f345-4399-91cf-3dd6c0049340.png">
+
+
+
+# Traversing all paths between two vertices (A to E) Using DFS:
+<img width="846" alt="image" src="https://user-images.githubusercontent.com/35987583/178165426-8b88c6d1-b053-4fe6-b1ea-53935345646c.png">
+
+<img width="841" alt="image" src="https://user-images.githubusercontent.com/35987583/178165466-3f49adef-ec8a-4655-927a-dc79c298dccd.png">
+<img width="835" alt="image" src="https://user-images.githubusercontent.com/35987583/178165474-ebb18187-8aab-4151-8d0b-085c0a0b46ed.png">
