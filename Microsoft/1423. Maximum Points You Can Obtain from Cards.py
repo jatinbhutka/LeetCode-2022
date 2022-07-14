@@ -48,4 +48,32 @@ class Solution:
             i -= 1
             j -= 1
         return max_sum
+       
+       
+       
+class Solution:
+    def maxScore(self, cardPoints: List[int], k: int) -> int:
+        
+        
+        maxPoints = 0
+        for cardInd in range(len(cardPoints)-k, len(cardPoints)):
+            maxPoints += cardPoints[cardInd]
+        
+        points = maxPoints
+        startInd = 0
+        endInd = len(cardPoints) - k
+        
+        while startInd < k:
+            
+            points -= cardPoints[endInd]
+            points += cardPoints[startInd]
+            startInd += 1
+            endInd += 1
+            maxPoints = max(points, maxPoints)
+            
+        return maxPoints
+       
+
+# Time: O(K)
+# Space: O(1)
         
