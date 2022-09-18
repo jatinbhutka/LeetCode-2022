@@ -83,6 +83,9 @@ You can list out all the local and remote branch
 ```bash
 > git branch -a
 ```
+<img width="404" alt="image" src="https://user-images.githubusercontent.com/35987583/190880450-bcb4da28-51ec-4cbc-b079-283ca0d1f526.png">
+
+
 
 You can delete local branch
 ```bash
