@@ -2,6 +2,12 @@
 
 https://www.w3schools.com/django/index.php 
 
+In this tutorial you get a step by step guide on how to install and create a Django project. You will learn how to create a model where you can create, read, update or delete data.
+
+You will learn how to make HTML Templates and use Django Template Tags to insert data within a HTML document.
+
+You will learn how to work with QuerySets to extract, filter, and sort data from the database.
+
 https://www.educative.io/module/page/487B21tRmX24M79or/10370001/5603318673440768/5614879316115456
 
 
