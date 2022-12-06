@@ -8,6 +8,27 @@ You will learn how to make HTML Templates and use Django Template Tags to insert
 
 You will learn how to work with QuerySets to extract, filter, and sort data from the database.
 
+```
+### Django is especially helpful for database driven websites.
+
+Django follows the MVT design pattern (Model View Template).
+
+Model - The data you want to present, usually data from a database.
+View - A request handler that returns the relevant template and content - based on the request from the user.
+Template - A text file (like an HTML file) containing the layout of the web page, with logic on how to display the data.
+```
+
+```
+So, What is Going On?
+When you have installed Django and created your first Django web application, and the browser requests the URL, this is basically what happens:
+
+- Django receives the URL, checks the urls.py file, and calls the view that matches the URL.
+- The view, located in views.py, checks for relevant models.
+- The models are imported from the models.py file.
+- The view then sends the data to a specified template in the template folder.
+- The template contains HTML and Django tags, and with the data it returns finished HTML content back to the browser.
+```
+
 https://www.educative.io/module/page/487B21tRmX24M79or/10370001/5603318673440768/5614879316115456
 
 
