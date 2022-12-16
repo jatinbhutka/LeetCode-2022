@@ -5,3 +5,7 @@
 
 #### WorkOut Example:
 https://www.django-rest-framework.org/tutorial/1-serialization/
+
+
+#### Many2Many Relation:
+https://www.sankalpjonna.com/learn-django/the-right-way-to-use-a-manytomanyfield-in-django
