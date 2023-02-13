@@ -13,7 +13,7 @@ Architecture:
 - Can be made reusable by component.
 <img width="1453" alt="image" src="https://user-images.githubusercontent.com/35987583/218301785-a5bd1048-1928-4662-99d1-eabdc8799522.png">
 
-- React is declarative.
+- React is declarative. - With help of react DOM
 
 
 React Prerequisites:
