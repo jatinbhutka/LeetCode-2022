@@ -31,6 +31,8 @@ s and t consist of lowercase English letters.
 Follow up: What if the inputs contain Unicode characters? How would you adapt your solution to such a case?
 """
 
+
+```python
 # Solution 1: Using Dictionary (Add count of char, minus the count)
 
 class Solution:
@@ -84,6 +86,8 @@ def isAnagram3(self, s, t):
  
 # Time: O(N Log N)
 # Space: O(1)   
+
+```
 
 
 
