@@ -1,5 +1,22 @@
 # 496. Next Greater Element I:
 
+
+```py
+class Solution:
+    def nextGreaterElement(self, nums1: List[int], nums2: List[int]) -> List[int]:
+        hashMap = {num : i for i, num in enumerate(nums1)}
+        result = [-1] * len(nums1)
+        stack = []
+        
+        for ind, num in enumerate(nums2):
+            while stack and num > stack[-1]:
+                prevNo = stack.pop()
+                if prevNo in hashMap:
+                    result[hashMap[prevNo]] = num
+            stack.append(num)
+        return result
+```
+
 """
 The next greater element of some element x in an array is the first greater element that is to the right of x in the same array.
 You are given two distinct 0-indexed integer arrays nums1 and nums2, where nums1 is a subset of nums2
