@@ -17,6 +17,18 @@ Constraints:
 0 <= nums1[i], nums2[i] <= 1000
 '''
 
+```py
+class Solution:
+    def intersection(self, nums1: List[int], nums2: List[int]) -> List[int]:
+        numSet1 = set(nums1)
+        result = []
+        for num in nums2:
+            if num in numSet1:
+                result.append(num)
+                numSet1.remove(num)
+        return result
+
+```
 
 class Solution:
     def intersection(self, nums1: List[int], nums2: List[int]) -> List[int]:
